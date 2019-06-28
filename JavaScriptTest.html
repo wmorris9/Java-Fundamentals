@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript Test</title>
+    </head>
+    <body>
+        <script>
+            //Adds 7 To A Number
+            function add7(number) {
+                if (isNaN(number)) {
+                    alert("The input is not a number!");
+                }
+                else {
+                    return number + 7;
+                }
+            }
+            //Mulitplys Two Numbers
+            function multiply(number1, number2) {
+                if(isNaN(number1) || isNaN(number2)) {
+                    alert("The inputs are not numbers!");
+                }
+                else {
+                    return number1 * number2;
+                }
+            }
+            //Returns string with first letter uppercase and all other lowercase
+            function captialize(stringToCapitalize) {
+                stringToCapitalize = stringToCapitalize.charAt(0).toUpperCase() 
+                + stringToCapitalize.substr(1, stringToCapitalize.length - 1).toLowerCase();
+                return stringToCapitalize;
+            }
+            //Returns The Last Letter of a String
+            function lastLetter(lastLetterString) {
+                lastLetterString = lastLetterString.charAt(lastLetterString.length - 1);
+                return lastLetterString;
+            }
+        </script>
+    </body>
+</html>
