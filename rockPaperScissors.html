@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript Test</title>
+    </head>
+    <body>
+        <script>
+            //Function Enabling Computer Selection
+            function computerPlay() {
+                let selection = Math.floor(Math.random() * 3);
+                
+                if (selection == 0) {
+                    return "rock";
+                }
+                else if (selection == 1) {
+                    return "paper";
+                }
+                else {
+                    return "scissors";
+                }
+            }
+            //Function Outlining Gameplay Mechanics
+            function singleRound(playerSelection, computerSelection) {
+                if (playerSelection.toLowerCase() == "rock" && 
+                computerSelection.toLowerCase() == "rock") {
+                    return "It's A Tie!";
+                }
+                else if (playerSelection.toLowerCase() == "rock" && 
+                computerSelection.toLowerCase() == "paper") {
+                    return "You Lose";
+                }
+                else if (playerSelection.toLowerCase() == "rock" && 
+                computerSelection.toLowerCase() == "scissors") {
+                    return "You Win!";
+                }
+                else if (playerSelection.toLowerCase() == "paper" && 
+                computerSelection.toLowerCase() == "rock") {
+                    return "You Win!";
+                }
+                else if (playerSelection.toLowerCase() == "paper" && 
+                computerSelection.toLowerCase() == "paper") {
+                    return "It's A Tie!";
+                }
+                else if (playerSelection.toLowerCase() == "paper" && 
+                computerSelection.toLowerCase() == "scissors") {
+                    return "You Lose";
+                }
+                else if (playerSelection.toLowerCase() == "scissors" && 
+                computerSelection.toLowerCase() == "rock") {
+                    return "You Lose";
+                }
+                else if (playerSelection.toLowerCase() == "scissors" && 
+                computerSelection.toLowerCase() == "paper") {
+                    return "You Win!";
+                }
+                else if (playerSelection.toLowerCase() == "scissors" && 
+                computerSelection.toLowerCase() == "scissors") {
+                    return "It's A Tie!";
+                }
+                else {
+                    return "Invalid Input";
+                }
+            }
+            //Function Enacting Game Play
+            function game() {
+                let winCounter = 0;
+                let lossCounter = 0;
+
+                for (let i = 0; i < 5; ++i) {
+                    let playerSelection = prompt();  
+
+                    while (playerSelection != "rock" &&
+                    playerSelection != "paper" &&
+                    playerSelection != "scissors") {
+                        alert("Invalid selection. Please enter \"rock\",\
+                        \"paper\", or \"scissors\"")
+                        playerSelection = prompt();
+                    }
+
+                    let result = singleRound(playerSelection, computerPlay());
+                    console.log(result);
+                    
+                    if (result == "You Win!") {
+                        winCounter++;
+                    }
+                    else if (result == "You Lose") {
+                        lossCounter++
+                    }
+                }
+
+                if (winCounter > lossCounter) {
+                    return "You Won The Entire Game!";
+                }
+                else if (lossCounter > winCounter) {
+                    return "You Lost The Entire Game";
+                }
+                else {
+                    return "It Was A Complete Tie!";
+                }
+            }
+        </script>
+    </body>
+</html>
